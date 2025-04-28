@@ -31,7 +31,10 @@ class Exchange(Enum):
     BYBIT = "BYBIT"  # 新增Bybit交易所枚举
 ```
 
+<img src="/Users/xhx/Library/Application Support/typora-user-images/image-20250428203844749.png" alt="image-20250428203844749" style="zoom: 33%;" />
+
 ### 2. 统一账户模式支持
+
 `vnpy_bybit/bybit_gateway.py`:
 ```python
 def query_account(self) -> None:
