@@ -1,0 +1,8 @@
+{
+  "database.name": "mysql",
+  "database.database": "quant",
+  "database.host": "127.0.0.1",
+  "database.port": 3306,
+  "database.user": "root",
+  "database.password": "root"
+}
