@@ -1,4 +1,3 @@
-```markdown
 # VeighNa框架Bybit加密货币交易模块集成说明
 
 ## 项目概述
@@ -9,13 +8,14 @@
 - 低延迟私有Websocket连接
 
 ## 功能特性
-🟢 **核心功能**：
+**核心功能**：
+
 - 支持Bybit统一账户(UNIFIED)交易模式
 - 覆盖线性/反向合约、现货、期权交易品种
 - 提供Tick/1分钟/K线等多粒度历史数据
 - 支持市价单、限价单等常见订单类型
 
-🟡 **增强特性**：
+ **增强特性**：
 - 优化Websocket断线重连机制
 - 增加交易品种分类自动识别
 - 支持混合保证金模式仓位查询
@@ -31,7 +31,7 @@ class Exchange(Enum):
     BYBIT = "BYBIT"  # 新增Bybit交易所枚举
 ```
 
-<img src="/Users/xhx/Library/Application Support/typora-user-images/image-20250428203844749.png" alt="image-20250428203844749" style="zoom: 33%;" />
+<img src="https://raw.githubusercontent.com/Nobi-Nobita5/study-notes/master/img/image-20250428203844749.png?token=ARXTR55SIPU2F5RM3ZJ2IWLIB53US" alt="image-20250428203844749" style="zoom: 33%;" />
 
 ### 2. 统一账户模式支持
 
@@ -91,7 +91,24 @@ Server: REAL/DEMO
     └── datafeed.py              # 历史数据服务模块
 ```
 
-## 使用指南
+## 注意事项
+
+1. **API权限**：确保API密钥已开通「交易」和「行情」权限
+2. **网络要求**：推荐使用香港/新加坡服务器以获得更低延迟
+3. **风控限制**：Bybit API默认每秒10次调用限制
+4. **模拟交易**：DEMO环境需使用`DEMO`服务器配置
+
+## 故障排查
+
+常见问题解决方案：
+
+- **连接超时**：检查防火墙设置，开放TCP 80/443端口
+- **签名错误**：同步本地时间至网络时间服务器
+- **仓位不同步**：调用`query_position()`强制刷新
+
+> 更多技术细节请参考[Bybit API文档](https://bybit-exchange.github.io/docs/v5/)
+
+## 其他使用指南
 
 ### 行情订阅
 ```python
@@ -117,19 +134,4 @@ engine.set_parameters(
     rate=0.0002,    # Bybit手续费率
     slippage=0.5     # 滑点设置
 )
-```
-
-## 注意事项
-1. **API权限**：确保API密钥已开通「交易」和「行情」权限
-2. **网络要求**：推荐使用香港/新加坡服务器以获得更低延迟
-3. **风控限制**：Bybit API默认每秒10次调用限制
-4. **模拟交易**：DEMO环境需使用`DEMO`服务器配置
-
-## 故障排查
-常见问题解决方案：
-- **连接超时**：检查防火墙设置，开放TCP 80/443端口
-- **签名错误**：同步本地时间至网络时间服务器
-- **仓位不同步**：调用`query_position()`强制刷新
-
-> 更多技术细节请参考[Bybit API文档](https://bybit-exchange.github.io/docs/v5/)
 ```
