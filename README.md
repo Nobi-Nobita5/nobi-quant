@@ -31,7 +31,7 @@ class Exchange(Enum):
     BYBIT = "BYBIT"  # 新增Bybit交易所枚举
 ```
 
-<img src="https://raw.githubusercontent.com/Nobi-Nobita5/study-notes/master/img/image-20250428203844749.png?token=ARXTR55SIPU2F5RM3ZJ2IWLIB53US" alt="image-20250428203844749" style="zoom: 33%;" />
+<div align="center"> <img  src="https://github.com/Nobi-Nobita5/study-notes/blob/master/img/image-20250428203844749.png"/> </div>
 
 ### 2. 统一账户模式支持
 
